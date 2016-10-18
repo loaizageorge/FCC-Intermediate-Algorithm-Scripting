@@ -1,0 +1,24 @@
+function translatePigLatin(str) {
+// Array used to store chars until a vowel is found
+  var consonant = [];
+ 
+ // While a vowel isn't found, store the characters into the array until one is found.
+ 
+  for(var i = 0; i<str.length; i++){
+  	if(	(str[i] == 'a' ||str[i] =='e'||str[i] =='i'||str[i] =='o'||str[i] =='u') && (consonant.length === 0) ){
+    // If first char is vowel, return the original string and add 'way'.
+    	return str+'way';
+    } else if ((str[i] == 'a' ||str[i] =='e'||str[i] =='i'||str[i] =='o'||str[i] =='u') && (consonant.length !== 0)){
+    // Case where a consonant cluster existed or just a single consonant, add the array of consonant/s together,
+    // get the remainder of the string, not including the consonant/s, and add the consonant/s+ 'ay'
+    	var putTogether = consonant.join('');
+      return str.substr(i)+putTogether+'ay';
+    }else{
+    // Found a consonant, store and keep searching for vowel.
+    	consonant.push(str[i]);
+    }
+  }
+ 
+}
+
+translatePigLatin("glove");

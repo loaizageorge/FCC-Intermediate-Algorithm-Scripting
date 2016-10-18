@@ -1,0 +1,20 @@
+function spinalCase(str) {
+ 
+ 
+ // Look for a lowercase letter followed by an upper case letter(eg. 'coolGuy' the 'l' and 'G')
+ // $1 stores value of the found lower case letter ($1 == 'l')
+ //$2 stores value of found upper case letter ($2 == 'G')
+ // "Replace" the lowercase followed by the uppercase with
+ // the lowercase,a hyphen(-), and the uppercase. (l-G)
+ 
+ str = str.replace(/([a-z])([A-Z])/g,"$1-$2");
+ 
+ // Find spaces (\s) or underscores and replace with the hyphen.
+ // g is global flag meaning find all occurences.
+ //Regex expressions are defined by /expressions-to-match/flags
+ 
+ str = str.replace(/\s|_/g,"-").toLowerCase();
+ return str; 
+}
+
+spinalCase('This Is Spinal Tap');

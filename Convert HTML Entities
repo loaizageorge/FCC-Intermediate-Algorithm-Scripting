@@ -1,0 +1,31 @@
+function convertHTML(str) {
+  
+  // Using regex to find all the characters, replace them with their HTML entities equivalent by using a switch. 
+  // Return the result.
+  // References: 
+  // http://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_regexp_not_charset
+  // http://www.w3schools.com/jsref/jsref_replace.asp
+  
+  var res = str.replace(/[&<>\"\']/g,function myFunction(x){
+    switch(x){
+      case "&":
+        return "&amp;";
+        break;
+       case "<":
+        return "&lt;";
+        break;
+       case ">":
+        return "&gt;";
+        break;
+       case "\"":
+        return "&quot;";
+        break;
+       case "\'":
+        return "&apos;";
+        break;  
+    }
+  });
+  return res;
+}
+
+convertHTML("Dolce & Gabbana");

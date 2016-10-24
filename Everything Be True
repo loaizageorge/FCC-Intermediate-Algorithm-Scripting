@@ -1,0 +1,14 @@
+function truthCheck(collection, pre) {
+  // Is everyone being true?
+ var countTrue = 0;
+  for (var i = 0; i < collection.length; i++){
+ 	if((collection[i].hasOwnProperty(pre) && Boolean(collection[i][pre])))  {
+  	countTrue ++;
+  }
+ // else{console.log(collection[i][pre]);} 
+ }
+  return collection.length == countTrue;
+}
+
+truthCheck([{"user": "Tinky-Winky", "sex": "male"}, {"user": "Dipsy", "sex": "male"},
+{"user": "Laa-Laa", "sex": "female"}, {"user": "Po", "sex": "female"}], "sex");
